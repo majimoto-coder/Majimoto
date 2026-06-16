@@ -218,6 +218,35 @@
     <footer class="bg-gray-900 text-gray-400 text-center py-6 border-t border-gray-800">
         <p>&copy; 2026 Majimoto Camping Lodge. All rights reserved.</p>
     </footer>
+<!-- JavaScript Engines for Modal and Background Slideshow -->
+    <script>
+        // Modal Controls
+        function openAdminModal() {
+            document.getElementById('adminModal').classList.remove('hidden');
+        }
+        function closeAdminModal() {
+            document.getElementById('adminModal').classList.add('hidden');
+        }
 
+        // BACKGROUND SLIDESHOW ENGINE
+        // These are 3 beautiful, distinct landscape/camping images
+        const backgroundImages = [
+            "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1200&q=80", // Stars & Tent
+            "https://images.unsplash.com/photo-1537905569824-f89f14cceb68?auto=format&fit=crop&w=1200&q=80", // Beautiful Valley Camp
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80"  // Lush green river forest
+        ];
+        
+        let currentImageIndex = 0;
+        const heroSection = document.getElementById('hero-section');
+
+        function changeHeroBackground() {
+            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
+            // Keeps the professional dark text overlay filter while changing the image file behind it
+            heroSection.style.backgroundImage = `linear-gradient(rgba(44, 62, 47, 0.75), rgba(44, 62, 47, 0.75)), url('${backgroundImages[currentImageIndex]}')`;
+        }
+
+        // Switches image every 5000 milliseconds (5 seconds)
+        setInterval(changeHeroBackground, 5000);
+    </script>
 </body>
 </html>
